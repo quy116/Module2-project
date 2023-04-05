@@ -14,7 +14,7 @@ public class DemKyTu {
         String str1 = sc.nextLine();
         int sum = 0;
         for (int i = 0; i < strArr.length; i++) {
-              if (strArr[i] == str1) {
+              if (strArr[i].equals(str1)) {
                   sum++;
             }
         }
