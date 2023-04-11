@@ -6,7 +6,7 @@ public class Test {
         cylinder.getarea();
         cylinder.getRadius();
         System.out.println(cylinder.getarea());
-        System.out.println(cylinder.TheTich());
+        System.out.println(cylinder.theTich());
         System.out.println(cylinder.getColor());
         System.out.println(cylinder.getRadius());
     }

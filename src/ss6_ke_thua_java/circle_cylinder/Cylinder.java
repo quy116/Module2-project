@@ -11,7 +11,7 @@ public class Cylinder extends Circle {
     public void setHeight(double height) {
         this.height = height;
     }
-    public double TheTich() {
+    public double theTich() {
         return this.height * getarea();
     }
 
