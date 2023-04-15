@@ -1,23 +1,17 @@
 package ss10_danh_sach_java.bai_tap_lam_them.student_manager.service;
 
+import ss10_danh_sach_java.bai_tap_lam_them.student_manager.model.Student;
 import ss10_danh_sach_java.bai_tap_lam_them.student_manager.model.Teacher;
 
 import java.util.Scanner;
 import java.util.Stack;
 
-public class TeacherSv implements ITeacherSv {
+public class StudentSv implements IStudentSv {
+    Stack<String> studentList = new Stack<>();
     Scanner sc = new Scanner(System.in);
-    Stack<Teacher> teacherList = new Stack<>();
-
-
-    //    public Teacher(String id, String name, String date, String sex, String chuyenMon) {
-//        super(id, name, date, sex);
-//        this.chuyenMon = chuyenMon;
-//    }
-
 
     @Override
-    public void addTeacher() {
+    public void addStudent() {
         Scanner sc = new Scanner(System.in);
         System.out.println("nhap ID");
         String id = sc.nextLine();
@@ -28,27 +22,27 @@ public class TeacherSv implements ITeacherSv {
         System.out.println("nhap gioi tinh");
         String sex = sc.nextLine();
         System.out.println("nhap chuyen mon :");
-        String chuyenMon = sc.nextLine();
-        Teacher teacher = new Teacher(id, name, date, sex, chuyenMon);
-        teacherList.push(teacher);
-    }
-
-    public void deleteTecher() {
-        System.out.println("nhập ID");
-        int input = sc.nextInt();
-        for (int i = 0; i < teacherList.size(); i++) {
-            if (input == i + 1) {
-                teacherList.remove(i);
-            }
-        }
-
+        String point  = sc.nextLine();
+        Student student = new Student(id,name,date,sex,point);
+        studentList.push(String.valueOf(student));
     }
 
     @Override
-    public void editTeacher() {
+    public void delete() {
+        System.out.println("nhập ID");
+        int input = sc.nextInt();
+        for (int i = 0; i < studentList.size(); i++) {
+            if (input == i + 1) {
+                studentList.remove(i);
+            }
+        }
+    }
+
+    @Override
+    public void edit() {
         System.out.println("nhập ID đối tượng muốn thay đổi");
         int input = sc.nextInt();
-        for (int i = 0; i < teacherList.size(); i++) {
+        for (int i = 0; i < studentList.size(); i++) {
             if (input == i + 1) {
                 System.out.println("nhap ID");
                 String id = sc.nextLine();
@@ -58,27 +52,18 @@ public class TeacherSv implements ITeacherSv {
                 String date = sc.nextLine();
                 System.out.println("nhap gioi tinh");
                 String sex = sc.nextLine();
-                System.out.println("nhap chuyen mon :");
-                String chuyenMon = sc.nextLine();
-                Teacher iedtteacher = new Teacher(id, name, date, sex, chuyenMon);
-                teacherList.set(i, iedtteacher);
+                System.out.println("nhap diem :");
+                String point = sc.nextLine();
+                Student edit = new Student(id, name, date, sex, point);
+                studentList.set(i, String.valueOf(edit));
             }
         }
     }
 
     @Override
-    public void displayTecher() {
-        for (Teacher t : teacherList) {
-            System.out.println(t);
+    public void display() {
+        for (String s : studentList) {
+            System.out.println(s);
         }
     }
-
-    @Override
-    public String toString() {
-        return "TeacherSv{" +
-                "teacherList=" + teacherList +
-                '}';
-    }
-
-
 }
