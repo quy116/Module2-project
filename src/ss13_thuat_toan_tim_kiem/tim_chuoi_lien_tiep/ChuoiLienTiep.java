@@ -11,7 +11,7 @@ public class ChuoiLienTiep {
         LinkedList<Character> linkedList = new LinkedList<>();
         LinkedList<Character> linkedList2 = new LinkedList<>();
         for (int i = 0; i < str.length(); i++) {
-            if (linkedList2.size() > 1 && str.charAt(i) <= linkedList2.getLast() && linkedList2.contains((str.charAt(i)))) {
+            if (linkedList2.size() >= 1 && str.charAt(i) <= linkedList2.getLast()) {
                 linkedList2.clear();
             }
             linkedList2.add(str.charAt(i));
