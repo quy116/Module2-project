@@ -21,7 +21,6 @@ public class Coppy {
             System.out.println(repo);
         } catch (IOException e) {
             e.printStackTrace();
-
         }finally {
             try {
                 fileReader.close();
@@ -41,9 +40,9 @@ public class Coppy {
             if (!(file.exists())) {
                 throw new FileNotFoundException();
             }
-            fileWriter = new FileWriter(file);
+            fileWriter = new FileWriter(file,true);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(fileText);
+            bufferedWriter.write("\n"+fileText);
             bufferedWriter.flush();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
